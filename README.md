@@ -1,5 +1,11 @@
-wercker devbox
-==============
+# Wercker devbox
 
-1. Install Berkshelf - gem install berkshelf (http://berkshelf.com/)
-2. Run vagrant up - vagrant up (http://www.vagrantup.com/)
+## How to install ##
+
+### Ubuntu ###
+
+1. Install Berkshelf (http://berkshelf.com/)
+        gem install berkshelf
+
+2. Run vagrant up (http://www.vagrantup.com/)
+        vagrant up
