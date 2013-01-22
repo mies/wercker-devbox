@@ -1,0 +1,1 @@
+cookbook 'wercker-develop', :git => 'git://github.com/hatchan/wercker-develop-cookbook.git', :ref => 'b84ed4df1e3930f5b0972fda6484c2a43f26aa9b'
