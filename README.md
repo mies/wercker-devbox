@@ -34,7 +34,7 @@ Note: The next steps assume you have homebrew installed.
 
 	If not, your paths are probably not setup correctly. Run the follow for diagnostics:
 
-        	brew doctor
+        brew doctor
 
 3. You might want to create a symbolic link to vagrant for easier use:
 
