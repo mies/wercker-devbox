@@ -22,24 +22,24 @@ Note: The next steps assume you have homebrew installed.
 
 1. Install ruby:
 
-	brew install ruby
+        brew install ruby
 
 
 2. Make sure the ruby you've just installed is being used. Try: 
 
-	ruby -v
+        ruby -v
 
 This should result in something like:
 ruby 1.9.3p374 (2013-01-15 revision 38858) [x86_64-darwin12.2.1]
 
 If not, your paths are probably not setup correctly. Run the follow for diagnostics:
 
-	brew doctor
+        brew doctor
 
 3. You might want to create a symbolic link to vagrant for easier use:
 
-	cd /usr/local/bin
-	ln -s ../Cellar/ruby/1.9.3-p374/bin/vagrant
+        cd /usr/local/bin
+        ln -s ../Cellar/ruby/1.9.3-p374/bin/vagrant
 
 After this you can follow the Ubuntu instructions. That's it!
 
