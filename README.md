@@ -14,8 +14,8 @@
 
 ### OS X ###
 Using berkshelf and vagrant on OS X is exactly the same as on Ubuntu, however, there are can be some complications:
-* you might not have a recent version of ruby installed (>1.9.1) you will have to take some additional steps.
-* you might have vagrant installed via the installer and might not have installed berkshelf via the bundled ruby gem installer. To avoid this last problem, we'll install vagrant via ruby gems and not use the packaged vagrant installer.
+* the machine does not have a recent version of ruby installed (>1.9.1) you will have to take some additional steps.
+* vagrant is installed via the installer and might not have installed berkshelf via the bundled ruby gem installer. To avoid this last problem, we'll install vagrant via ruby gems and not use the packaged vagrant installer.
 
 Note: The next steps assume you have homebrew installed.
 
