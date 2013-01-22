@@ -13,17 +13,8 @@ Vagrant::Config.run do |config|
 
   # wercker-web
   config.vm.forward_port 3000, 3000
-  config.vm.share_folder "v-wercker", "/var/local/sites/wercker", "~/dev/wercker/wercker"
+  config.vm.share_folder "v-wercker", "/var/local/sites", "~/dev/wercker"
   config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-wercker", "1"]
-
-  # wercker-pool
-  #config.vm.share_folder "v-wercker-pool", "/var/local/sites/wercker-pool", "~/dev/wercker/wercker-pool"
-  #config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-wercker-pool", "1"]
-
-  # wercker-sentinel
-  #config.vm.share_folder "v-wercker-sentinel", "/var/local/sites/wercker-sentinel", "~/dev/wercker/wercker-sentinel"
-  #config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-wercker-sentinel", "1"]
-
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
