@@ -30,7 +30,7 @@ Note: The next steps assume you have homebrew installed.
         ruby -v
 
 This should result in something like:
-ruby 1.9.3p374 (2013-01-15 revision 38858) [x86_64-darwin12.2.1]
+        ruby 1.9.3p374 (2013-01-15 revision 38858) [x86_64-darwin12.2.1]
 
 If not, your paths are probably not setup correctly. Run the follow for diagnostics:
 
