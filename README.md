@@ -4,6 +4,7 @@
 
 - Nodeenv: 0.8.16 (/var/local/nodeenv/0.8.16)
 - Vagrant shared folder: `/var/local/sites` -> `~/dev/wercker` (See [Advanced use](#change-varlocalsites-folder) to override this mapping)
+- MongoDB: latest version from the 10gen repository
 
 ## How to install ##
 
@@ -51,12 +52,20 @@ After this you can follow the Ubuntu instructions. That's it!
 
 ## TODO ##
 
-- Make VM memory size configurable
 - Install Ruby 1.9.3
 - Install zurb-foundation gem
+- Install git
 
 ## Advanced use ##
 
 ### Change /var/local/sites folder ###
 
-It is possible to change the mapping of the /var/local/sites/ to point to a different directory (default is `/var/local/sites` -> `~/dev/wercker`). To change this you need to set the `WERCKER_DEVBOX_SITESPATH`.
+It is possible to change the mapping of the /var/local/sites/ to point to a different directory (default is `/var/local/sites` -> `~/dev/wercker`). To change this you need to set the `WERCKER_DEVBOX_SITESPATH` environment variable.
+
+    WERCKER_DEVBOX_SITESPATH=./ vagrant up
+
+### Change memory size of the devbox ###
+
+The memory size defaults to 1024mb. This can be overwritten by setting the `WERCKER_DEVBOX_MEMORY` environment variable.
+
+    WERCKER_DEVBOX_MEMORY=4096 vagrant up
