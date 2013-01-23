@@ -3,7 +3,7 @@
 ## Included in the devbox ##
 
 - Nodeenv: 0.8.16 (/var/local/nodeenv/0.8.16)
-- Vagrant shared folder: /var/local/sites -> ~/dev/wercker (See Advanced use to override this mapping)
+- Vagrant shared folder: `/var/local/sites` -> `~/dev/wercker` (See [Advanced use](#change-varlocalsites-folder) to override this mapping)
 
 ## How to install ##
 
@@ -59,5 +59,4 @@ After this you can follow the Ubuntu instructions. That's it!
 
 ### Change /var/local/sites folder ###
 
-It is possible to change the mapping of the /var/local/sites/ to point to a different directory (default is /var/local/sites -> ~/dev/wercker). To change this you need to set the `WERCKER_DEVBOX_SITESPATH`.
-```
+It is possible to change the mapping of the /var/local/sites/ to point to a different directory (default is `/var/local/sites` -> `~/dev/wercker`). To change this you need to set the `WERCKER_DEVBOX_SITESPATH`.
