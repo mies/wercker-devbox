@@ -1,5 +1,10 @@
 # Wercker devbox
 
+## Included in the devbox ##
+
+- Nodeenv: 0.8.16 (/var/local/nodeenv/0.8.16)
+- Vagrant shared folder: /var/local/sites -> ~/dev/wercker (See Advanced use to override this mapping)
+
 ## How to install ##
 
 ### Ubuntu ###
@@ -25,14 +30,15 @@ Note: The next steps assume you have homebrew installed.
         brew install ruby
 
 
-2. Make sure the ruby you've just installed is being used. Try: 
+2. Make sure the ruby you've just installed is being used. Try:
 
         ruby -v
 
-	This should result in something like:
-        	ruby 1.9.3p374 (2013-01-15 revision 38858) [x86_64-darwin12.2.1]
+  This should result in something like:
 
-	If not, your paths are probably not setup correctly. Run the follow for diagnostics:
+        ruby 1.9.3p374 (2013-01-15 revision 38858) [x86_64-darwin12.2.1]
+
+  If not, your paths are probably not setup correctly. Run the follow for diagnostics:
 
         brew doctor
 
@@ -43,3 +49,15 @@ Note: The next steps assume you have homebrew installed.
 
 After this you can follow the Ubuntu instructions. That's it!
 
+## TODO ##
+
+- Make VM memory size configurable
+- Install Ruby 1.9.3
+- Install zurb-foundation gem
+
+## Advanced use ##
+
+### Change /var/local/sites folder ###
+
+It is possible to change the mapping of the /var/local/sites/ to point to a different directory (default is /var/local/sites -> ~/dev/wercker). To change this you need to set the `WERCKER_DEVBOX_SITESPATH`.
+```
