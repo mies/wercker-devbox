@@ -26,7 +26,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe('build-essential')
     chef.add_recipe('python::pip')
     chef.add_recipe('nodeenv')
-    chef.add_recipe('mongodb-10gen')
+    chef.add_recipe('mongodb-10gen::single')
     chef.add_recipe('wercker-develop::wercker-web')
 
   end
