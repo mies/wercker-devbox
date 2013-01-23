@@ -2,7 +2,7 @@
 
 ## Included in the devbox ##
 
-- Nodeenv: 0.8.16 (/var/local/nodeenv/0.8.16)
+- Nodeenv: 0.8.16 (`/var/local/nodeenv/0.8.16`)
 - Vagrant shared folder: `/var/local/sites` -> `~/dev/wercker` (See [Advanced use](#change-varlocalsites-folder) to override this mapping)
 - MongoDB: latest version from the 10gen repository
 
