@@ -5,6 +5,9 @@
 - Nodeenv: 0.8.16 (`/var/local/nodeenv/0.8.16`)
 - Vagrant shared folder: `/var/local/sites` -> `~/dev/wercker` (See [Advanced use](#change-varlocalsites-folder) to override this mapping)
 - MongoDB: latest version from the 10gen repository
+- git
+- Ruby: 1.9.3
+  - Foundation: 3.2.3
 
 ## How to install ##
 
