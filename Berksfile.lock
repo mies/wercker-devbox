@@ -1,4 +1,4 @@
-cookbook 'wercker-develop', :git => 'git://github.com/hatchan/wercker-develop-cookbook.git', :ref => 'aac12cf6fdff1151ad2563be5491bbdc7a74d3f8'
+cookbook 'wercker-develop', :git => 'git://github.com/hatchan/wercker-develop-cookbook.git', :ref => '1fa8ce4a933fdac553ede8885b48e79901568c18'
 cookbook 'nodeenv', :git => 'git://github.com/wercker/nodeenv-cookbook.git', :ref => '71aafdf619b57a00090406c87e0780a252806f04'
 cookbook 'apt', :locked_version => '1.8.0'
 cookbook 'build-essential', :locked_version => '1.3.2'
