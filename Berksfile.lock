@@ -1,1 +1,7 @@
-cookbook 'wercker-develop', :git => 'git://github.com/hatchan/wercker-develop-cookbook.git', :ref => 'b84ed4df1e3930f5b0972fda6484c2a43f26aa9b'
+cookbook 'wercker-develop', :git => 'git://github.com/hatchan/wercker-develop-cookbook.git', :ref => 'aac12cf6fdff1151ad2563be5491bbdc7a74d3f8'
+cookbook 'nodeenv', :git => 'git://github.com/wercker/nodeenv-cookbook.git', :ref => '71aafdf619b57a00090406c87e0780a252806f04'
+cookbook 'apt', :locked_version => '1.8.0'
+cookbook 'build-essential', :locked_version => '1.3.2'
+cookbook 'python', :locked_version => '1.2.0'
+cookbook 'mongodb-10gen', :locked_version => '0.1.7'
+cookbook 'yum', :locked_version => '2.1.0'
