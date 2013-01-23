@@ -11,9 +11,8 @@ Vagrant::Config.run do |config|
   # config.ssh.forward_agent = true
   config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
 
-  # wercker-web
   config.vm.forward_port 3000, 3000
-  config.vm.share_folder "v-wercker", "/var/local/sites", "~/dev/wercker"
+  config.vm.share_folder "v-wercker", "/var/local/sites", ENV['WERCKER_DEVBOX_SITESPATH'] || "~/dev/wercker"
   config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-wercker", "1"]
 
   config.vm.provision :chef_solo do |chef|
