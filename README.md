@@ -65,10 +65,16 @@ After this you can follow the Ubuntu instructions. That's it!
 
 It is possible to change the mapping of the /var/local/sites/ to point to a different directory (default is `/var/local/sites` -> `~/dev/wercker`). To change this you need to set the `WERCKER_DEVBOX_SITESPATH` environment variable.
 
-    WERCKER_DEVBOX_SITESPATH=./ vagrant up
+    WERCKER_DEVBOX_SITESPATH=./
 
 ### Change memory size of the devbox ###
 
 The memory size defaults to 1024mb. This can be overwritten by setting the `WERCKER_DEVBOX_MEMORY` environment variable.
 
-    WERCKER_DEVBOX_MEMORY=4096 vagrant up
+    WERCKER_DEVBOX_MEMORY=4096
+
+### Change default editor ###
+
+The wercker devbox defaults to the default editor of ubuntu (currently nano) This can be changed to vim or nano by setting the WERCKER_DEVBOX_EDITOR environment variable.
+
+    WERCKER_DEVBOX_EDITOR=vim

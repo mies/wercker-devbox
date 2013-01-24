@@ -19,7 +19,9 @@ Vagrant::Config.run do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      :apt => { :mirror => :nl }
+      :wercker_devbox => { 
+      	:editor => ENV['WERCKER_DEVBOX_EDITOR']
+      }
     }
 
     chef.add_recipe('apt')
@@ -27,6 +29,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe('python::pip')
     chef.add_recipe('nodeenv')
     chef.add_recipe('mongodb-10gen::single')
+    chef.add_recipe('wercker-develop')
     chef.add_recipe('wercker-develop::wercker-web')
 
   end
