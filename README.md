@@ -3,11 +3,18 @@
 ## Included in the devbox ##
 
 - Nodeenv: 0.8.16 (`/var/local/nodeenv/0.8.16`)
+  - jshint
+  - supervisor
+  - migrate
+  - coffee-script
+  - coffeelint
 - Vagrant shared folder: `/var/local/sites` -> `~/dev/wercker` (See [Advanced use](#change-varlocalsites-folder) to override this mapping)
 - MongoDB: latest version from the 10gen repository
 - git
 - Ruby: 1.9.3
   - Foundation: 3.2.3
+- lxc
+- graphicsmagick
 
 ## How to install ##
 
@@ -55,9 +62,7 @@ After this you can follow the Ubuntu instructions. That's it!
 
 ## TODO ##
 
-- Install Ruby 1.9.3
-- Install zurb-foundation gem
-- Install git
+Empty \o/
 
 ## Advanced use ##
 
