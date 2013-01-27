@@ -31,6 +31,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe('mongodb-10gen::single')
     chef.add_recipe('wercker-develop')
     chef.add_recipe('wercker-develop::wercker-web')
+    chef.add_recipe('wercker-develop::wercker-sentinel')
 
   end
 
