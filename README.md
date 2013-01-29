@@ -8,6 +8,7 @@
   - migrate
   - coffee-script
   - coffeelint
+  - nodeunit
 - Vagrant shared folder: `/var/local/sites` -> `~/dev/wercker` (See [Advanced use](#change-varlocalsites-folder) to override this mapping)
 - MongoDB: latest version from the 10gen repository
 - git
