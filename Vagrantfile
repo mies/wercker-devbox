@@ -19,7 +19,7 @@ Vagrant::Config.run do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      :wercker_devbox => { 
+      :wercker_devbox => {
       	:editor => ENV['WERCKER_DEVBOX_EDITOR']
       }
     }
@@ -31,6 +31,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe('mongodb-10gen::single')
     chef.add_recipe('wercker-develop')
     chef.add_recipe('wercker-develop::wercker-web')
+    chef.add_recipe('wercker-develop::wercker-pool')
     chef.add_recipe('wercker-develop::wercker-sentinel')
 
   end
