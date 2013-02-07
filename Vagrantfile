@@ -16,6 +16,11 @@ Vagrant::Config.run do |config|
   config.vm.share_folder "v-wercker", "/var/local/sites", ENV['WERCKER_DEVBOX_SITESPATH'] || "~/dev/wercker"
   config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-wercker", "1"]
 
+  config.vm.provision :shell do |sh|
+    sh.inline = <<-EOF
+      gem install chef --no-ri --no-rdoc --no-user-install -v 10.20.0 --conservative
+    EOF
+  end
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
