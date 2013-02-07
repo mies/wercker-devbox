@@ -17,17 +17,63 @@
 - lxc
 - graphicsmagick
 
-## How to install ##
+## How to run ##
 
-### Ubuntu ###
+1. Make sure you have run the [Getting started](#getting-started) instructions once.
 
-1. Install Berkshelf (http://berkshelf.com/)
-
-        gem install berkshelf
-2. Run vagrant up (http://www.vagrantup.com/)
+2. Startup the virtual machine using vagrant.
 
         vagrant up
 
+3. Once the virtual machine is loaded, ssh into the virtual machine (this may take a while).
+
+        vagrant ssh
+
+4. Update the wercker applications using the update scripts (needs to be executed at least once).
+
+        ~/update-wercker
+        ~/update-wercker-pool
+        ~/update-wercker-sentinel
+        
+5. Update styles using compass (only needed when working with wercker-web).
+
+        ~/compass-compile
+
+6. Start the desired wercker application using the startup scripts (every application needs a new ssh connection).
+
+        ~/start-wercker
+        ~/start-wercker-pool
+        ~/start-wercker-sentinel
+
+## Getting started ##
+
+### Ubuntu ###
+
+1. Install a recent Ruby version (1.9.3 recommended).
+
+        sudo apt-get install ruby1.9.3
+
+2. Install vagrant (http://www.vagrantup.com/).
+
+        sudo gem install vagrant
+        
+3. Install Berkshelf (http://berkshelf.com/).
+
+        sudo gem install berkshelf
+
+4. Create the default directory layout.
+
+        mkdir -p ~/dev/wercker/{wercker,wercker-pool,wercker-sentinel,keys/wercker-pool}/
+        
+5. git clone the wercker projects.
+
+        git clone --recursive git@github.com:wercker/wercker.git ~/dev/wercker/wercker/
+        git clone --recursive git@github.com:wercker/wercker-pool.git ~/dev/wercker/wercker-pool/
+        git clone --recursive git@github.com:wercker/wercker-sentinel.git ~/dev/wercker/wercker-sentinel/
+
+6. Copy the wercker private ssh key.
+
+        cp location_of_private_key ~/dev/wercker/keys/wercker-pool/id_rsa
 
 ### OS X ###
 Using berkshelf and vagrant on OS X is exactly the same as on Ubuntu, however, there are can be some complications:
@@ -59,11 +105,7 @@ Note: The next steps assume you have homebrew installed.
         cd /usr/local/bin
         ln -s ../Cellar/ruby/1.9.3-p374/bin/vagrant
 
-After this you can follow the Ubuntu instructions. That's it!
-
-## TODO ##
-
-Empty \o/
+After this you can follow the Ubuntu instructions from step 2. That's it!
 
 ## Advanced use ##
 
