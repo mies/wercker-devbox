@@ -18,7 +18,15 @@ Vagrant::Config.run do |config|
 
   config.vm.provision :shell do |sh|
     sh.inline = <<-EOF
-      gem install chef --no-ri --no-rdoc --no-user-install -v 10.20.0 --conservative
+      if [ -f "/home/vagrant/.chef-10.20.0-installed" ]
+      then
+        echo "Chef 10.20.0 already installed"
+      else
+        sudo apt-get update
+        sudo apt-get install build-essential -y
+        gem install chef --no-ri --no-rdoc --no-user-install -v 10.20.0
+        touch /home/vagrant/.chef-10.20.0-installed
+      fi
     EOF
   end
 
