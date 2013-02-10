@@ -14,6 +14,7 @@
 - git
 - Ruby: 1.9.3
   - Foundation: 3.2.3
+  - Berkshelf
 - lxc
 - graphicsmagick
 
@@ -21,29 +22,29 @@
 
 1. Make sure you have run the [Getting started](#getting-started) instructions once.
 
-2. Startup the virtual machine using vagrant.
+2. Startup the virtual machine using vagrant (this may take a while).
 
         vagrant up
 
-3. Once the virtual machine is loaded, ssh into the virtual machine (this may take a while).
+3. Once the virtual machine is loaded, ssh into the virtual machine.
 
         vagrant ssh
 
-4. Update the wercker applications using the update scripts (needs to be executed at least once).
+4. Initialize the wercker applications using the init scripts (needs to be executed at least once per vagrant machine).
 
-        ~/update-wercker
-        ~/update-wercker-pool
-        ~/update-wercker-sentinel
+        ~/wercker/init
+        ~/wercker-pool/init
+        ~/wercker-sentinel/init
         
 5. Update styles using compass (only needed when working with wercker-web).
 
-        ~/compass-compile
+        ~/wercker/compass-compile
 
 6. Start the desired wercker application using the startup scripts (every application needs a new ssh connection).
 
-        ~/start-wercker
-        ~/start-wercker-pool
-        ~/start-wercker-sentinel
+        ~/wercker/start
+        ~/wercker-pool/start
+        ~/wercker-sentinel/start
 
 ## Getting started ##
 
@@ -53,11 +54,11 @@
 
         sudo apt-get install ruby1.9.3
 
-2. Install vagrant (http://www.vagrantup.com/).
+2. Install [vagrant](http://www.vagrantup.com/).
 
         sudo gem install vagrant
         
-3. Install Berkshelf (http://berkshelf.com/).
+3. Install [Berkshelf](http://berkshelf.com/).
 
         sudo gem install berkshelf
 
