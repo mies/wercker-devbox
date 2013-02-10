@@ -35,7 +35,7 @@
         ~/wercker/init
         ~/wercker-pool/init
         ~/wercker-sentinel/init
-        
+
 5. Update styles using compass (only needed when working with wercker-web).
 
         ~/wercker/compass-compile
@@ -57,7 +57,7 @@
 2. Install [vagrant](http://www.vagrantup.com/).
 
         sudo gem install vagrant
-        
+
 3. Install [Berkshelf](http://berkshelf.com/).
 
         sudo gem install berkshelf
@@ -65,7 +65,7 @@
 4. Create the default directory layout.
 
         mkdir -p ~/dev/wercker/{wercker,wercker-pool,wercker-sentinel,keys/wercker-pool}/
-        
+
 5. git clone the wercker projects.
 
         git clone --recursive git@github.com:wercker/wercker.git ~/dev/wercker/wercker/
@@ -77,6 +77,7 @@
         cp location_of_private_key ~/dev/wercker/keys/wercker-pool/id_rsa
 
 ### OS X ###
+
 Using berkshelf and vagrant on OS X is exactly the same as on Ubuntu, however, there are can be some complications:
 * the machine does not have a recent version of ruby installed (>1.9.1) you will have to take some additional steps.
 * vagrant is installed via the installer and might not have installed berkshelf via the bundled ruby gem installer. To avoid this last problem, we'll install vagrant via ruby gems and not use the packaged vagrant installer.
@@ -108,6 +109,12 @@ Note: The next steps assume you have homebrew installed.
 
 After this you can follow the Ubuntu instructions from step 2. That's it!
 
+### Windows ###
+
+TODO: write instructions.
+
+Make sure you set the `WERCKER_DEVBOX_NOBINLINK` environment variable to `true`.
+
 ## Advanced use ##
 
 ### Change /var/local/sites folder ###
@@ -127,3 +134,9 @@ The memory size defaults to 1024mb. This can be overwritten by setting the `WERC
 The wercker devbox defaults to the default editor of ubuntu (currently nano) This can be changed to vim or nano by setting the WERCKER_DEVBOX_EDITOR environment variable.
 
     WERCKER_DEVBOX_EDITOR=vim
+
+### Disable npm's 'bin_links' ###
+
+Npm creates symbolic links for certain modules. This can be a problem if the host doesn't support symbolic links (like Windows). To disable this behavior in the wercker scripts set the environment variable `WERCKER_DEVBOX_NOBINLINKS` to `true`.
+
+    WERCKER_DEVBOX_NOBINLINKS=true
