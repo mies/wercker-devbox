@@ -33,7 +33,9 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       :wercker_devbox => {
-      	:editor => ENV['WERCKER_DEVBOX_EDITOR']
+        :editor => ENV['WERCKER_DEVBOX_EDITOR'],
+        :use_supervisor => ENV['WERCKER_DEVBOX_SUPERVISOR'] == 'true',
+        :no_bin_links => ENV['WERCKER_DEVBOX_NOBINLINKS'] == 'true'
       }
     }
 
