@@ -48,6 +48,10 @@
 
 ## Getting started ##
 
+* [Ubuntu](#ubuntu)
+* [OS-X](#os-x)
+* [Windows](#windows)
+
 ### Ubuntu ###
 
 1. Install a recent Ruby version (1.9.3 recommended).
@@ -113,7 +117,7 @@ After this you can follow the Ubuntu instructions from step 2. That's it!
 
 TODO: write instructions.
 
-Make sure you set the `WERCKER_DEVBOX_NOBINLINK` environment variable to `true`.
+Make sure you set the `WERCKER_DEVBOX_NOBINLINK` environment variable to `true`, see [Advanced use](#disable-npms-bin_links).
 
 ## Advanced use ##
 
