@@ -1,0 +1,15 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+
+cd /var/local/sites/wercker/src/
+
+echo "wercker-web init - npm install"
+npm install <%= node[:wercker_devbox][:no_bin_links] ? "--no-bin-links" : "" %>
+
+echo "wercker-web init - removing migrations/.migrate"
+rm migrations/.migrate
+
+echo "wercker-web init - running migrate"
+migrate up
+
+echo "wercker-web init - complete"

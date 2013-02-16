@@ -1,6 +1,7 @@
 site :opscode
 
-cookbook 'wercker-develop', git: 'git://github.com/hatchan/wercker-develop-cookbook.git'
+metadata
+
 cookbook 'nodeenv', git: 'git://github.com/wercker/nodeenv-cookbook.git'
 
 cookbook 'apt', '= 1.8.0'

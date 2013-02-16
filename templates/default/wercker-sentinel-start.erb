@@ -1,0 +1,8 @@
+#!/bin/bash
+echo -ne '\033]0;wercker-sentinel\007'
+sudo bash -c '. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate &&
+<% if node[:wercker_devbox][:use_supervisor] -%>
+supervisor /var/local/sites/wercker-sentinel/src/app
+<% else -%>
+coffee /var/local/sites/wercker-sentinel/src/index
+<% end -%>'

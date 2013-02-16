@@ -1,0 +1,6 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+
+cd /var/local/sites/wercker-sentinel/src/
+npm test
+echo "wercker-sentinel test - complete"

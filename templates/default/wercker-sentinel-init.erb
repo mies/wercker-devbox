@@ -1,0 +1,10 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+sudo bash -c '. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate &&
+cd /var/local/sites/wercker-sentinel/src &&
+echo "wercker-sentinel init - npm install" &&
+npm install <%= node[:wercker_devbox][:no_bin_links] ? "--no-bin-links" : "" %> &&
+cd .. &&
+echo "wercker-sentinel init - init optimi" &&
+coffee src/install/init-optimi/init'
+echo "wercker-sentinel init - complete"

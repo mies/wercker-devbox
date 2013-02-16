@@ -1,0 +1,9 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+echo -ne '\033]0;wercker-pool\007'
+export GIT_SSH_KEY_FILE=/var/local/sites/keys/wercker-pool/id_rsa
+<% if node[:wercker_devbox][:use_supervisor] -%>
+supervisor /var/local/sites/wercker-pool/src/app
+<% else -%>
+node /var/local/sites/wercker-pool/src/app
+<% end -%>

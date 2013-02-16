@@ -1,0 +1,12 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+
+cd /var/local/sites/wercker-sentinel/src/
+
+echo "wercker-sentinel npm-update - npm update"
+npm update <%= node[:wercker_devbox][:no_bin_links] ? "--no-bin-links" : "" %>
+
+echo "wercker-sentinel npm-update - npm prune"
+npm prune
+
+echo "wercker-sentinel npm-update - complete"

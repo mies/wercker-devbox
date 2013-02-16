@@ -1,0 +1,8 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+
+cd /var/local/sites/wercker-sentinel/src/
+
+coffeelint -q -f coffeelint.json -r lib-coffee/
+
+echo "wercker-sentinel coffeelint - complete"

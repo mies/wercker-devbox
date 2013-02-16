@@ -1,0 +1,8 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+
+cd /var/local/sites/wercker/src/
+
+jshint .
+
+echo "wercker-web jshint - complete"
