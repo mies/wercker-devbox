@@ -35,11 +35,13 @@ gem_package "berkshelf" do
   action :install
 end
 
-directory "/home/vagrant/wercker-sentinel" do
-  user "vagrant"
-  group "vagrant"
+["/home/vagrant/wercker-sentinel", "/home/vagrant/wercker-sentinel/build-optimus"].each do |dir|
+  directory dir do
+    user "vagrant"
+    group "vagrant"
 
-  action :create
+    action :create
+  end
 end
 
 ["start", "init", "npm-update", "coffeelint", "test"].each do |command|
@@ -49,4 +51,41 @@ end
     mode "0755"
     source "wercker-sentinel-#{command}.erb"
   end
+end
+
+optimi = ["blank", "ruby", "mysql", "optimus", "nodejs", "redis", "python", "php", "go", "rabbitmq", "postgresql", "mongodb", "deploy"]
+
+optimi.each do |optimus|
+  template "/home/vagrant/wercker-sentinel/build-optimus/#{optimus}" do
+    owner "vagrant"
+    group "vagrant"
+    mode "0755"
+    source "wercker-sentinel-build-optimus.erb"
+    variables(
+      :name => optimus,
+      :optimi => [*optimus]
+    )
+  end
+end
+
+template "/home/vagrant/wercker-sentinel/build-optimus/_wercker" do
+  owner "vagrant"
+  group "vagrant"
+  mode "0755"
+  source "wercker-sentinel-build-optimus.erb"
+  variables(
+    :name => "_wercker",
+    :optimi => ["nodejs", "mongodb"]
+  )
+end
+
+template "/home/vagrant/wercker-sentinel/build-optimus/_all" do
+  owner "vagrant"
+  group "vagrant"
+  mode "0755"
+  source "wercker-sentinel-build-optimus.erb"
+  variables(
+    :name => "_all",
+    :optimi => optimi
+  )
 end
