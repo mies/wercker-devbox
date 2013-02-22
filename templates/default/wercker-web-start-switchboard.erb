@@ -1,0 +1,18 @@
+#!/bin/bash
+
+port="${1:?Error - the switchboard port is not defined}"
+
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+echo -ne '\033]0;wercker-web\007'
+export LISTENADDR=*
+export WEBHOOKS_CREATE=true
+export INBOX_PORT=$port
+export INBOX_HOST=switchboard.wercker.com
+
+echo "Using: $INBOX_HOST:$INBOX_PORT as inbox url"
+
+<% if node[:wercker_devbox][:use_supervisor] -%>
+supervisor /var/local/sites/wercker/src/app
+<% else -%>
+node /var/local/sites/wercker/src/app
+<% end -%>

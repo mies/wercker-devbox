@@ -43,11 +43,18 @@ directory "/home/vagrant/wercker" do
   action :create
 end
 
-["start", "init", "npm-update", "compass-compile", "compass-watch", "jshint", "test"].each do |command|
+["start", "start-switchboard", "init", "npm-update", "compass-compile", "compass-watch", "jshint", "test"].each do |command|
   template "/home/vagrant/wercker/#{command}" do
     owner "vagrant"
     group "vagrant"
     mode "0755"
     source "wercker-web-#{command}.erb"
   end
+end
+
+template "/home/vagrant/switchboard/wercker" do
+  owner "vagrant"
+  group "vagrant"
+  mode "0755"
+  source "switchboard-wercker.erb"
 end

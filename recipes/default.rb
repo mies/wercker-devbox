@@ -24,7 +24,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-["/var/local/nodeenv", "/var/local/sites", "/home/vagrant/start"].each do |dir|
+["/var/local/nodeenv", "/var/local/sites", "/home/vagrant/switchboard"].each do |dir|
   directory dir do
     user "vagrant"
     group "vagrant"

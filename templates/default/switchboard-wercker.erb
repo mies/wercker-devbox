@@ -1,0 +1,9 @@
+#!/bin/bash
+
+switchboardPort="${1:?Error - the switchboard port is not defined}"
+destinationPort=3000
+
+echo "switchboard wercker - forwarding switchboard.wercker.com:$switchboardPort to localhost:$destinationPort"
+echo "switchboard wercker - connecting to switchboard.wercker.com"
+
+ssh -i /var/local/sites/keys/switchboard/id_rsa -l switchboard -R *:$switchboardPort:localhost:$destinationPort switchboard.wercker.com
