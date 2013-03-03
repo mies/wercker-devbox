@@ -93,7 +93,6 @@ Note: The next steps assume you have homebrew installed.
 
         brew install ruby
 
-
 2. Make sure the ruby you've just installed is being used. Try:
 
         ruby -v
@@ -115,7 +114,41 @@ After this you can follow the Ubuntu instructions from step 2. That's it!
 
 ### Windows ###
 
-TODO: write instructions.
+1. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
+
+2. Install a recent Ruby version with [Ruby Installer for Windows](http://rubyinstaller.org/) (1.9.3 recommended).
+
+3. Start a prompt with Ruby using `Start Command Prompt with Ruby` shortcut.
+
+4. Install [vagrant](http://www.vagrantup.com/).
+
+        gem install vagrant
+
+5. Install [Berkshelf](http://berkshelf.com/).
+
+        gem install berkshelf
+
+6. Install [msysgit](https://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git) (use `checkout as-is, commit as-is`).
+
+7. Start git using the `Git Bash` shortcut.
+
+8. Create the default directory layout.
+
+        mkdir -p ~/dev/wercker/{wercker,wercker-pool,wercker-sentinel,keys/wercker-pool}/
+
+9. git clone the wercker projects.
+
+        git clone --recursive git@github.com:wercker/wercker.git ~/dev/wercker/wercker/
+        git clone --recursive git@github.com:wercker/wercker-pool.git ~/dev/wercker/wercker-pool/
+        git clone --recursive git@github.com:wercker/wercker-sentinel.git ~/dev/wercker/wercker-sentinel/
+
+10. Copy the wercker private ssh key.
+
+        cp location_of_private_key ~/dev/wercker/keys/wercker-pool/id_rsa
+
+11. Start the virtual machine using `vagrant up`.
+
+12. Optional if you want to use putty, convert the vagrant key (`~/.vagrant.d/insecure_private_key`) using putty key generator.
 
 Make sure you set the `WERCKER_DEVBOX_NOBINLINK` environment variable to `true`, see [Advanced use](#disable-npms-bin_links).
 
