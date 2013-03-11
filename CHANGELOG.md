@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of wercker-develop.
 
+
+
+## 0.1.15:
+
+* Add support for wercker-perceptor
+
 ## 0.1.14:
 
 * Add scripts to build optimi

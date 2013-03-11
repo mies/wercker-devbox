@@ -1,0 +1,8 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+echo -ne '\033]0;wercker-perceptor\007'
+<% if node[:wercker_devbox][:use_supervisor] -%>
+supervisor /var/local/sites/wercker-perceptor/app
+<% else -%>
+node /var/local/sites/wercker-perceptor/app
+<% end -%>

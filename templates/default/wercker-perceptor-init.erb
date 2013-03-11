@@ -1,0 +1,9 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+
+cd /var/local/sites/wercker-perceptor/
+
+echo "wercker-perceptor init - npm install"
+npm install <%= node[:wercker_devbox][:no_bin_links] ? "--no-bin-links" : "" %>
+
+echo "wercker-perceptor init - complete"

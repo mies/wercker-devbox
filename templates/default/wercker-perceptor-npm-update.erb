@@ -1,0 +1,12 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+
+cd /var/local/sites/wercker-perceptor/
+
+echo "wercker-perceptor npm-update - npm update"
+npm update <%= node[:wercker_devbox][:no_bin_links] ? "--no-bin-links" : "" %>
+
+echo "wercker-perceptor npm-update - npm prune"
+npm prune
+
+echo "wercker-perceptor npm-update - complete"

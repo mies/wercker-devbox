@@ -1,0 +1,9 @@
+#!/bin/bash
+. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate
+
+cd /var/local/sites/wercker-perceptor/
+
+echo "wercker-perceptor init - npm test"
+npm test
+
+echo "wercker-perceptor test - complete"
