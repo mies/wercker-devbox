@@ -1,6 +1,4 @@
-require 'berkshelf/vagrant'
-
-Vagrant::Config.run do |config|
+Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
@@ -8,15 +6,21 @@ Vagrant::Config.run do |config|
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
-  # config.ssh.forward_agent = true
-  config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
-  config.vm.customize ["modifyvm", :id, "--memory", ENV['WERCKER_DEVBOX_MEMORY'] || 1024]
+  # Port forward for wercker (3000) and perceptor (4000)
+  config.vm.network :forwarded_port, guest: 3000, host: 3000, auto_correct: true
+  config.vm.network :forwarded_port, guest: 4000, host: 4000, auto_correct: true
 
-  config.vm.forward_port 3000, 3000
-  config.vm.forward_port 4000, 4000
-  config.vm.share_folder "v-wercker", "/var/local/sites", ENV['WERCKER_DEVBOX_SITESPATH'] || "~/dev/wercker"
-  config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-wercker", "1"]
+  # Create a new synced folder to syncronize the wercker applications
+  config.vm.synced_folder(ENV['WERCKER_DEVBOX_SITESPATH'] || "~/dev/wercker", "/var/local/sites", :id => "wercker-root")
 
+  # VirtualBox specific customizations
+  config.vm.provider :virtualbox do |v|
+    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant-root", "1"]
+    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/wercker-root", "1"]
+    v.customize ["modifyvm", :id, "--memory", ENV['WERCKER_DEVBOX_MEMORY'] || 1024]
+  end
+
+  # Make sure Chef 10.20.0 is installed
   config.vm.provision :shell do |sh|
     sh.inline = <<-EOF
       if [ -f "/home/vagrant/.chef-10.20.0-installed" ]
@@ -31,6 +35,7 @@ Vagrant::Config.run do |config|
     EOF
   end
 
+  # Do the actual provisioning using chef solo
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       :wercker_devbox => {
@@ -50,7 +55,5 @@ Vagrant::Config.run do |config|
     chef.add_recipe('wercker-develop::wercker-pool')
     chef.add_recipe('wercker-develop::wercker-sentinel')
     chef.add_recipe('wercker-develop::wercker-web')
-
   end
-
 end
