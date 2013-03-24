@@ -3,5 +3,5 @@
 sudo bash -c '. /var/local/nodeenv/<%= node[:wercker_devbox][:nodejs] %>/bin/activate &&
 cd /var/local/sites/wercker-sentinel &&
 echo "wercker-sentinel build-optimi[<%= @name %>] - start" &&
-echo "[ <%= @optimi.map {|optimus| "\\\"https://github.com/wercker/wercker-optimus-#{optimus}.git\\\""}.join(', ')%> ]" | coffee src/install/init-optimi/init'
+echo "[ <%= @optimi.map {|optimus| "\\\"https://github.com/wercker/wercker-optimus-#{optimus}.git\\\""}.join(', ')%> ]" | coffee src/install/init-optimi/init.coffee'
 echo "wercker-sentinel build-optimi[<%= @name %>] - complete"

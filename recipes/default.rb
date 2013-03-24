@@ -80,6 +80,12 @@ end
   end
 end
 
+nodeenv_npm_package "coffee-script" do
+  nodeenv "/var/local/nodeenv/#{node[:wercker_devbox][:nodejs]}"
+  version "1.5"
+  global true
+end
+
 if node[:wercker_devbox][:use_supervisor] == true
   nodeenv_npm_package "supervisor" do
     nodeenv "/var/local/nodeenv/#{node[:wercker_devbox][:nodejs]}"
