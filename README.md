@@ -54,17 +54,13 @@
 
 ### Ubuntu ###
 
-1. Install a recent Ruby version (1.9.3 recommended).
+1. Install [VirtualBox](https://www.virtualbox.org/) (https://www.virtualbox.org/wiki/Downloads)
 
-        sudo apt-get install ruby1.9.3
-
-2. Install [vagrant](http://www.vagrantup.com/).
-
-        sudo gem install vagrant
+2. Install [vagrant](http://www.vagrantup.com/) (http://downloads.vagrantup.com/)
 
 3. Install [Berkshelf](http://berkshelf.com/).
 
-        sudo gem install berkshelf
+        vagrant plugin install berkshelf-vagrant
 
 4. Create the default directory layout.
 
