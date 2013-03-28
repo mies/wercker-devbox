@@ -45,6 +45,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe('python::pip')
     chef.add_recipe('nodeenv')
     chef.add_recipe('mongodb-10gen::single')
+    chef.add_recipe('rabbitmq')
     chef.add_recipe('wercker-develop')
     chef.add_recipe('wercker-develop::wercker-perceptor')
     chef.add_recipe('wercker-develop::wercker-pool')
