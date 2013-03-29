@@ -9,6 +9,7 @@ Vagrant.configure("2") do |config|
   # Port forward for wercker (3000) and perceptor (4000)
   config.vm.network :forwarded_port, guest: 3000, host: 3000, auto_correct: true
   config.vm.network :forwarded_port, guest: 4000, host: 4000, auto_correct: true
+  config.vm.network :forwarded_port, guest: 15672, host: 15672, auto_correct: true
 
   # Create a new synced folder to syncronize the wercker applications
   config.vm.synced_folder(ENV['WERCKER_DEVBOX_SITESPATH'] || "~/dev/wercker", "/var/local/sites", :id => "wercker-root")
@@ -50,7 +51,7 @@ Vagrant.configure("2") do |config|
     chef.add_recipe('python::pip')
     chef.add_recipe('nodeenv')
     chef.add_recipe('mongodb-10gen::single')
-    chef.add_recipe('rabbitmq')
+    chef.add_recipe('rabbitmq::mgmt_console')
     chef.add_recipe('wercker-develop')
     chef.add_recipe('wercker-develop::wercker-perceptor')
     chef.add_recipe('wercker-develop::wercker-pool')

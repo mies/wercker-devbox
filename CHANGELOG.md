@@ -2,7 +2,10 @@
 
 This file is used to list changes made in each version of wercker-develop.
 
+## 0.1.16
 
+* Add RabbitMQ server
+* Add port forward to RabbitMQ management console (15672)
 
 ## 0.1.15:
 
