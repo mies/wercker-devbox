@@ -30,9 +30,14 @@
   end
 end
 
+gem_package "compass" do
+  gem_binary '/usr/bin/gem1.9.3'
+  action :install
+end
+
 gem_package "zurb-foundation" do
   gem_binary '/usr/bin/gem1.9.3'
-  version "3.2.3"
+  version "4.1.2"
   action :install
 end
 

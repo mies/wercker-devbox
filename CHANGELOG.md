@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of wercker-develop.
 
+## 0.1.17
+
+* Update foundation to 4.1.2
+
 ## 0.1.16
 
 * Add RabbitMQ server
