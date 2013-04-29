@@ -13,7 +13,8 @@
 - MongoDB: latest version from the 10gen repository
 - git
 - Ruby: 1.9.3
-  - Foundation: 3.2.3
+  - Compass
+  - Foundation: 4.1.2
   - Berkshelf
 - lxc
 - graphicsmagick
