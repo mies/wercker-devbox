@@ -44,15 +44,10 @@ nodeenv_nodejs "/var/local/nodeenv/#{node[:wercker_devbox][:nodejs]}" do
   action :install
 end
 
-["ruby1.9.3", "git"].each do |pkg|
+["ruby1.9.3", "git", "libxml2-dev", "libxslt-dev"].each do |pkg|
   package pkg do
     action :install
   end
-end
-
-gem_package "localtunnel" do
-  gem_binary "/usr/bin/gem1.9.3"
-  action :install
 end
 
 if node[:wercker_devbox][:editor] == "vim"
