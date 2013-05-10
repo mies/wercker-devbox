@@ -50,11 +50,6 @@ end
   end
 end
 
-gem_package "localtunnel" do
-  gem_binary "/usr/bin/gem1.9.3"
-  action :install
-end
-
 if node[:wercker_devbox][:editor] == "vim"
   package "vim" do
     action :install
