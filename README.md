@@ -61,7 +61,7 @@
 
 3. Install [Berkshelf](http://berkshelf.com/).
 
-        vagrant plugin install berkshelf-vagrant
+        vagrant plugin install vagrant-berkshelf
 
 4. Create the default directory layout.
 
