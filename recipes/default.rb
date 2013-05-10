@@ -44,7 +44,7 @@ nodeenv_nodejs "/var/local/nodeenv/#{node[:wercker_devbox][:nodejs]}" do
   action :install
 end
 
-["ruby1.9.3", "git"].each do |pkg|
+["ruby1.9.3", "git", "lixml2-dev", "lib-xslt-dev"].each do |pkg|
   package pkg do
     action :install
   end
